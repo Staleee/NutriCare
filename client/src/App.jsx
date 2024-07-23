@@ -4,6 +4,11 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home/Home'
 import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost: 8000';
+axios.defaults.withCredentials = true
+
 
 function App() {
   return (

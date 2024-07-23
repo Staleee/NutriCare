@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios'
 
 import logo_withwords from "../../assets/v1112_32.png";
 import ellipse from "../../assets/Ellipse 2.png";
@@ -14,6 +15,7 @@ export default function Login() {
 
     const loginUser = (e) => {
         e.preventDefault()
+        axios.get('/')
     }
 
   return (
