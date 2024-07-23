@@ -43,11 +43,11 @@ html, body {
     height: 52px;
     width: 420px;
   }
-  .have-account{
+  /* .have-account{
     display: flex;
     margin-top: 25px;
     margin-left: -255px;
-  }
+  } */
   .Signup-link{
     color: #73B893;
     text-decoration: none;
@@ -83,8 +83,9 @@ html, body {
         margin-left: -890px;
     }
     .dont-have-account{
+        margin-top: 15px;
         display: fixed;
-        margin-left: -510px;
+        margin-left: -910px;
     }
     .submit-container {
         display: fixed;
@@ -113,9 +114,10 @@ html, body {
     margin-right:50px;  
   }
   .dont-have-account{
+    margin-top: 15px;
     flex-direction: column;
     align-items: center;
-    margin-left:-30px;
+    margin-left:-45px;
   }
   .submit-container {
     align-items: center;
@@ -123,9 +125,9 @@ html, body {
     margin-right:50px;  
   }
   .submit {
-  align-items: center;
-  margin-left:30px;
-  margin-right:50px;  
-  }
+    align-items: center;
+    margin-left:30px;
+    margin-right:50px;  
+    }
 }
 
