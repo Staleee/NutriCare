@@ -1,0 +1,56 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; 
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+
+.background-container {
+    background-image: url('/Group 1.png');
+    background-size: 100% auto;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative; 
+    width: 305vh; 
+    top: -30px;
+    margin-left: -165px;
+    height: 140vh; 
+    display: flex; 
+    align-items: center; 
+    padding: 200px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+#content{
+    margin-top: 70px;
+    text-align: left;
+}
+
+#content .highlight {
+    font-weight: bold;
+    font-size: 68px;
+    line-height: 1.2;
+}
+
+#content .green-text {
+    color: green; 
+}
+
+#headerButton {
+    background-color: green; 
+    color: white; 
+    border: none;
+    padding: 15px 60px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 15px; 
+    margin-top: 70px; 
+    transition: background-color 0.3s ease; 
+}
+
+#headerButton:hover {
+    background-color: darkgreen; 
+}

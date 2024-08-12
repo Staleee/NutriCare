@@ -18,10 +18,10 @@ export default function Register() {
         e.preventDefault()
     }
   return (
-    // <div classname='container'>
+    <div className='container'>
     <form onSubmit={registerUser}>
     <div className="header">
-        <a href="#" className="logo-link">
+        <a href="/" className="logo-link">
             <img src={logo_withwords} alt="Logo" />
         </a>
     </div>
@@ -44,6 +44,6 @@ export default function Register() {
     <div className="have-account">Already have an account? <a href="/login" className='login-link'>Log in</a></div>
     <img src={ellipse} alt="" className="ellipse" />
     </form>
-    // </div>
+    </div>
   )
 }

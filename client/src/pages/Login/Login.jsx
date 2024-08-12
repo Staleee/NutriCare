@@ -19,10 +19,10 @@ export default function Login() {
     }
 
   return (
-    <div classname='container'>
+    <div className='container'>
         <form pnSubmit={loginUser}>
     <div className="header">
-        <a href="#" className="logo-link">
+        <a href="/" className="logo-link">
             <img src={logo_withwords} alt="Logo" />
         </a>
     </div>
