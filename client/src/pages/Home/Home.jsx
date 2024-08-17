@@ -8,8 +8,8 @@ export default function Home() {
       <div className="background-container">
         <section id="content">
           <p>
-            <span class="highlight">
-              <span class="green-text">Wellness</span> Starts<br></br> with Your Plate
+            <span className="highlight">
+              <span className="green-text">Wellness</span> Starts<br></br> with Your Plate
             </span><br />
             Personalized Diets for Every Health Need
           </p>

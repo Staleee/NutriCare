@@ -8,7 +8,11 @@ import Login from './pages/Login/Login'
 // import ChatHome from './pages/chatting/chatHome'
 // import Chat from './pages/chatting/chatPage';
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost: 8000';
+import {Toaster} from 'react-hot-toast'
+// import { UserContextProvider } from '../context/userContext'
+
+
+axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true
 
 
@@ -19,6 +23,7 @@ function App() {
   return (
     <>
     {!hideNavbar && <Navbar />}  
+    <Toaster position ='bottom-right' toastOptions={{duration: 2000}} />
     <Routes>
       <Route path= '/' element={<Home />} />
       <Route path= '/register' element={<Register />} />

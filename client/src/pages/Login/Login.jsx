@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from 'axios'
+import {toast} from 'react-hot-toast'
+import {useNavigate} from 'react-router-dom'
 
 import logo_withwords from "../../assets/v1112_32.png";
 import ellipse from "../../assets/Ellipse 2.png";
@@ -7,20 +9,33 @@ import ellipse from "../../assets/Ellipse 2.png";
 import "./Login.css"
 
 export default function Login() {
-
+    const navigate = useNavigate()
     const [data, setData] =useState({
         email: '',
         password: '',
     })
 
-    const loginUser = (e) => {
+    const loginUser = async (e) => {
         e.preventDefault()
-        axios.get('/')
+        const{email, password} = data
+        try {
+            const {data} = await axios.post('/login', {
+                email, password
+            });
+            if(data.error) {
+                toast.error(data.error)
+            } else {
+                setData({});
+                navigate('/')
+            }
+        } catch (error) {
+            
+        }
     }
 
   return (
     <div className='container'>
-        <form pnSubmit={loginUser}>
+        <form onSubmit={loginUser}>
     <div className="header">
         <a href="/" className="logo-link">
             <img src={logo_withwords} alt="Logo" />
