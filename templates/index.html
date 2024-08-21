@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet and Workout Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #eaf5ea;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        .form-control, .btn {
+            border-radius: 30px;
+        }
+        .btn {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #43a047;
+        }
+        h1 {
+            font-weight: 600;
+            color: #4caf50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .mb-3 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Get Personalized Diet & Workout Plans</h1>
+        <form action="{{ url_for('recommend') }}" method="POST">
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="weight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" name="weight" required>
+            </div>
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (cm)</label>
+                <input type="number" class="form-control" id="height" name="height" required>
+            </div>
+            <div class="mb-3">
+                <label for="veg_or_nonveg" class="form-label">Diet Preference</label>
+                <select class="form-control" id="veg_or_nonveg" name="veg_or_nonveg" required>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="disease" class="form-label">Any Diseases</label>
+                <input type="text" class="form-control" id="disease" name="disease" placeholder="e.g., Diabetes">
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Region</label>
+                <input type="text" class="form-control" id="region" name="region" placeholder="e.g., Europe, Asia">
+            </div>
+            <div class="mb-3">
+                <label for="allergics" class="form-label">Allergics</label>
+                <input type="text" class="form-control" id="allergics" name="allergics" placeholder="e.g., Nuts, Dairy">
+            </div>
+            <div class="mb-3">
+                <label for="foodtype" class="form-label">Food Type Preference</label>
+                <input type="text" class="form-control" id="foodtype" name="foodtype" placeholder="e.g., Organic, Low-carb">
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-lg">Get Recommendations</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

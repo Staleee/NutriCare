@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Recommendations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #eaf5ea;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+        }
+        h1 {
+            font-weight: 600;
+            color: #4caf50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #43a047;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .card {
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            border-radius: 15px 15px 0 0;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        ul li:last-child {
+            border-bottom: none;
+        }
+        .btn-outline-success {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized Recommendations</h1>
+
+        <div class="card">
+            <div class="card-header">Breakfast Options</div>
+            <div class="card-body">
+                {% if breakfast %}
+                    <ul>
+                        {% for item in breakfast %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recommendations available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Dinner Options</div>
+            <div class="card-body">
+                {% if dinners %}
+                    <ul>
+                        {% for item in dinners %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recommendations available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Workout Plans</div>
+            <div class="card-body">
+                {% if workouts %}
+                    <ul>
+                        {% for item in workouts %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No recommendations available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-outline-success">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
