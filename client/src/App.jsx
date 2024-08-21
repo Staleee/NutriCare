@@ -9,6 +9,7 @@ import Login from './pages/Login/Login'
 // import Chat from './pages/chatting/chatPage';
 import axios from 'axios'
 import {Toaster} from 'react-hot-toast'
+import { AuthProvider } from './AuthContext'
 // import { UserContextProvider } from '../context/userContext'
 
 
@@ -21,7 +22,7 @@ function App() {
   const hideNavbar = location.pathname === '/login' || location.pathname === '/register';
 
   return (
-    <>
+    <AuthProvider>
     {!hideNavbar && <Navbar />}  
     <Toaster position ='bottom-right' toastOptions={{duration: 2000}} />
     <Routes>
@@ -30,7 +31,7 @@ function App() {
       <Route path= '/login' element={<Login />} />
 
     </Routes>
-    </>
+    </AuthProvider>
   )
 }
 
