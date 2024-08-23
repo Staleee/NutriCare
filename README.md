@@ -1,4 +1,5 @@
-# Diet Recommendation System
+![NutriCare Logo](https://github.com/Staleee/NutriCare/blob/main/client/src/assets/v1112_32.png)
+## Diet Recommendation System
 ---
 
 ## Overview
