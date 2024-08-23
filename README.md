@@ -7,8 +7,8 @@ NutriCare is an innovative web application designed to deliver personalized meal
 
 ## Features
 
-- **Personalized Recommendations:** Get customized breakfast, lunch, dinner, and workout recommendations.
 - **Secure Authentication:** Register and log in securely.
+- **Personalized Recommendations:** Get customized breakfast, lunch, dinner, and workout recommendations.
 - **User-Specific Inputs:** Recommendations are tailored based on age, gender, weight, height, dietary preferences, diseases, and allergies.
 
 ## Tech Stack
