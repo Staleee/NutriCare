@@ -10,6 +10,7 @@ import Login from './pages/Login/Login'
 import axios from 'axios'
 import {Toaster} from 'react-hot-toast'
 import { AuthProvider } from './AuthContext'
+import RecommendationForm from './pages/Recommender/RecommendationForm'
 // import { UserContextProvider } from '../context/userContext'
 
 
@@ -29,7 +30,7 @@ function App() {
       <Route path= '/' element={<Home />} />
       <Route path= '/register' element={<Register />} />
       <Route path= '/login' element={<Login />} />
-
+      <Route path= '/RecommendationForm' element={<RecommendationForm />} />
     </Routes>
     </AuthProvider>
   )

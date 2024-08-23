@@ -56,7 +56,7 @@
 <body>
     <div class="container">
         <h1>Get Personalized Diet & Workout Plans</h1>
-        <form action="{{ url_for('recommend') }}" method="POST">
+        <form id="recommendation-form">
             <div class="mb-3">
                 <label for="age" class="form-label">Age</label>
                 <input type="number" class="form-control" id="age" name="age" required>
@@ -103,6 +103,37 @@
                 <button type="submit" class="btn btn-lg">Get Recommendations</button>
             </div>
         </form>
+        <div id="result" class="mt-4"></div>
     </div>
+
+    <script>
+        document.getElementById('recommendation-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('http://127.0.0.1:8081/recommend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                let resultHTML = '<h3>Recommendations</h3>';
+                if (result.error) {
+                    resultHTML += `<p>${result.error}</p>`;
+                } else {
+                    resultHTML += `<h4>Breakfast:</h4><ul>${result.breakfast.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                    resultHTML += `<h4>Dinners:</h4><ul>${result.dinners.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                    resultHTML += `<h4>Workouts:</h4><ul>${result.workouts.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                }
+                document.getElementById('result').innerHTML = resultHTML;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
