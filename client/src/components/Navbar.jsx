@@ -25,7 +25,11 @@ export default function Navbar() {
       <img src={logo_withwords} alt="Logo" />
       <div className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/">Services</Link>
+        {isAuthenticated ? (
+          <Link to="/RecommendationForm">Services</Link>
+        ) : (
+          <Link to="/login">Services</Link>
+        )}
         <Link to="/">About us</Link>
       </div>
       <div className="nav-links-right">

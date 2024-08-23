@@ -1,22 +1,17 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home/Home'
-import Register from './pages/Register/Register'
-import { useLocation } from 'react-router-dom';
-import Login from './pages/Login/Login'
-// import ChatHome from './pages/chatting/chatHome'
-// import Chat from './pages/chatting/chatPage';
-import axios from 'axios'
-import {Toaster} from 'react-hot-toast'
-import { AuthProvider } from './AuthContext'
-import RecommendationForm from './pages/Recommender/RecommendationForm'
-// import { UserContextProvider } from '../context/userContext'
-
+import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home/Home';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import RecommendationForm from './pages/Recommender/RecommendationForm';
+import axios from 'axios';
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
 axios.defaults.baseURL = 'http://localhost:8000';
-axios.defaults.withCredentials = true
-
+axios.defaults.withCredentials = true;
 
 function App() {
   const location = useLocation();
@@ -24,16 +19,16 @@ function App() {
 
   return (
     <AuthProvider>
-    {!hideNavbar && <Navbar />}  
-    <Toaster position ='bottom-right' toastOptions={{duration: 2000}} />
-    <Routes>
-      <Route path= '/' element={<Home />} />
-      <Route path= '/register' element={<Register />} />
-      <Route path= '/login' element={<Login />} />
-      <Route path= '/RecommendationForm' element={<RecommendationForm />} />
-    </Routes>
+      {!hideNavbar && <Navbar />}  
+      <Toaster position='bottom-right' toastOptions={{ duration: 2000 }} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/RecommendationForm' element={<PrivateRoute element={RecommendationForm} />} />
+      </Routes>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
