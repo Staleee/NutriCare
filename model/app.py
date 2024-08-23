@@ -60,7 +60,7 @@ def recommend():
                 f"Region: {region}\n"
                 f"Allergics: {allergics}\n"
                 f"Food Type Preference: {foodtype}\n\n"
-                "Recommend breakfast options, dinner options, and workout plans."
+                "Recommend breakfast options, dinner options, and workout plans to best fit my needs."
             )
 
             # Get recommendations from Gemini AI

@@ -1,22 +1,22 @@
 .recommendations-container {
     position: relative;
-    top: 1000px;
+    top: 1400px;
   }
   .background{
     position: relative;
-    top: 1000px;
+    top: -300px;
     right: 2000px;
 }
   .recommendations-container h1 {
     font-size: 2rem;
     color: #333;
     position: relative;
-    top: -1500px;
+    top: -3050px;
     left: -400px;
   }
   .recs{
-    position: relative;
-    top: -1450px;
+    position: absolute;
+    top: -50px;
   }
   
   .recommendation-category {
@@ -28,7 +28,6 @@
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #555;
-    border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
   }
   
@@ -42,14 +41,13 @@
     font-size: 1rem;
     margin-bottom: 8px;
     padding: 10px;
-    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease;
   }
   
   .recommendation-category li:hover {
-    background-color: #e0f7fa;
+    background-color: #e0fae3ba;
   }
   
   .recommendations-container p {
