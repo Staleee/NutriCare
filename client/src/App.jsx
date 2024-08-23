@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -5,6 +7,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import RecommendationForm from './pages/Recommender/RecommendationForm';
+import Recommendations from './pages/Recommender/Recommendations'; // Import the new Recommendations component
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './AuthContext';
@@ -26,6 +29,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/RecommendationForm' element={<PrivateRoute element={RecommendationForm} />} />
+        <Route path='/recommendations' element={<PrivateRoute element={Recommendations} />} /> {/* Add new route */}
       </Routes>
     </AuthProvider>
   );

@@ -1,0 +1,80 @@
+.form-container {
+    width: 100%;
+    
+}
+
+h1 {
+    position: relative;
+    top: -1420px;
+    right: 250px;
+    color: #000000;
+}
+
+.form-card {
+    padding: 20px;
+    position: relative;
+    top: -1400px;
+    /* right: 30px; */
+    left: 100px;
+}
+.background{
+    position: relative;
+    top: 600px;
+    right: 1900px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust column widths */
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-left: -200px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000000;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 17px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Limit the width of the button */
+    margin: 20px auto; /* Center the button horizontally */
+    padding: 15px;
+    border: none;
+    border-radius: 13px;
+    background-color: green;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: darkgreen;
+}
+
