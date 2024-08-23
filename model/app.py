@@ -11,9 +11,6 @@ genai.configure(api_key=os.environ["API_KEY"])
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
-# response = model.generate_content("Write a story about an AI and magic")
-# print(response.text)
-
 def get_gemini_recommendations(prompt):
     try:
         response = model.generate_content(prompt)
@@ -28,12 +25,10 @@ def get_gemini_recommendations(prompt):
 @app.route('/recommend', methods=['POST'])
 def recommend():
     if request.method == 'POST':
-        # Retrieve form data from JSON request
         data = request.json
         if not data:
             return jsonify({"error": "No data provided"}), 400
         
-        # Extract fields with validation
         try:
             age = data.get('age')
             gender = data.get('gender')
@@ -48,7 +43,7 @@ def recommend():
             if any(v is None for v in [age, gender, weight, height, veg_or_nonveg, disease, region, allergics, foodtype]):
                 return jsonify({"error": "Missing required fields"}), 400
 
-            # Create prompt for Gemini API
+            #prompt for Gemini API
             prompt = (
                 f"Given the following details:\n"
                 f"Age: {age}\n"
@@ -60,15 +55,14 @@ def recommend():
                 f"Region: {region}\n"
                 f"Allergics: {allergics}\n"
                 f"Food Type Preference: {foodtype}\n\n"
-                "Recommend breakfast options, dinner options, and workout plans to best fit my needs."
+                "Recommend breakfast options, lunch options, dinner options, and workout plans to best fit my needs, without any additional tips or comments."
             )
 
-            # Get recommendations from Gemini AI
             recommendations = get_gemini_recommendations(prompt)
 
-            # Parse the recommendations into sections
             lines = recommendations.split("\n")
             breakfast = []
+            lunch = []
             dinners = []
             workouts = []
             current_section = None
@@ -76,6 +70,8 @@ def recommend():
             for line in lines:
                 if "breakfast" in line.lower():
                     current_section = "breakfast"
+                elif "lunch" in line.lower():
+                    current_section = "lunch"
                 elif "dinner" in line.lower():
                     current_section = "dinners"
                 elif "workout" in line.lower():
@@ -83,12 +79,14 @@ def recommend():
                 elif current_section:
                     if current_section == "breakfast":
                         breakfast.append(line)
+                    elif current_section == "lunch":
+                        lunch.append(line)
                     elif current_section == "dinners":
                         dinners.append(line)
                     elif current_section == "workouts":
                         workouts.append(line)
 
-            return jsonify({"breakfast": breakfast, "dinners": dinners, "workouts": workouts})
+            return jsonify({"breakfast": breakfast, "lunch": lunch, "dinners": dinners, "workouts": workouts})
         
         except Exception as e:
             return jsonify({"error": f"Error processing request: {e}"}), 500
